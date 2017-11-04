@@ -18,17 +18,36 @@ app.use(logger('dev')); //debugs logs in terminal
 app.use(bodyParser.json()); //parses json and sets to body
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(__dirname)); //sets all static file calls to 
 
 ////////////////////////////////////////
 //---------------API------------------//
 ////////////////////////////////////////
-
+/*
+app.get('/', (req, res) => {
+	console.dir(req);
+	console.log("--------");
+	console.log(req.headers.host);
+});
+*/
+app.get('/', (req, res) => {
+	console.log(req.headers);
+	res.send("test");
+});
 
 app.get('/:domain',(req,res) => {
-  console.log(req.params.domain);
-  res.sendFile(path.join(__dirname+ '/' + req.params.domain +'/index.html'));
-})
+  console.log(req);
+  var pat = (path.join(__dirname+ '/' + req.params.domain +'/index.html'));
+  console.log(pat);
+  res.sendFile(pat);
+});
+
+app.get('/test/:test', (req, res) => {
+	console.log(req);
+	console.log(req.params.test);
+});
+
+//app.use(express.static(path.join(__dirname, "gitgood.org"))); //sets all static file calls to 
+app.use(express.static(__dirname)); //sets all static file calls to 
 
 ////////////////////////////////////////
 //             WEB SOCKETS
