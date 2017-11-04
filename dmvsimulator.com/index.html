@@ -2,11 +2,41 @@
 <html>
 <head>
 	<title>DMV Simulator</title>
+	<style>
+		#main {
+		    position: absolute;
+		    top: 40%;
+		    width: 100%;
+		    text-align: center;
+		    font-size: 3.5em;
+		}
+
+		#warnings {
+			position: absolute;
+		    top: 10%;
+		    width: 100%;
+		   	color  : red;		   	
+		    text-align: center;
+		    font-size: 1.5em;
+		}
+
+		#loader {
+			font-size: 200%;
+		}
+
+		@keyframes blink {50% { color: transparent }}
+		.loader__dot { animation: 1s blink infinite }
+		.loader__dot:nth-child(2) { animation-delay: 250ms }
+		.loader__dot:nth-child(3) { animation-delay: 500ms }
+	</style>
 	<script type="text/javascript" src="main.js"></script>
 </head>
-<body>
+<body onload="init()" onkeypress="annoy()">
+	<div id="warnings"></div>
 	<span id="main">
-		Welcome to the DMV Simulator!
+		<div id="phrase"></div>
+		<div id="options"></div>
+		<div id="loader"><span class="loader__dot">.</span><span class="loader__dot">.</span><span class="loader__dot">.</span></div>
 	</span>
 </body>
 </html>
