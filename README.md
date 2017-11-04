@@ -44,3 +44,24 @@ Also here is a quick HTML template
 </body>
 </html>
 ```
+
+## Setting up NGINX to redirect all the domains
+
+```
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        index index.html index.htm;
+
+        server_name ~^(www\.)?(?<domain>.+)$;
+
+        location / {
+                proxy_pass http://127.0.0.1:1337/$domain;
+                try_files $uri $uri/ =404;
+        }
+
+}
+```

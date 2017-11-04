@@ -18,16 +18,16 @@ app.use(logger('dev')); //debugs logs in terminal
 app.use(bodyParser.json()); //parses json and sets to body
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public'))) //sets all static file calls to 
+app.use(express.static(__dirname)); //sets all static file calls to 
 
 ////////////////////////////////////////
 //---------------API------------------//
 ////////////////////////////////////////
 
 
-app.get('/',(req,res)=>{
-  console.dir(req);
-  res.send("TEST");
+app.get('/:domain',(req,res) => {
+  console.log(req.params.domain);
+  res.sendFile(path.join(__dirname+ '/' + req.params.domain +'/index.html'));
 })
 
 ////////////////////////////////////////
