@@ -2,8 +2,64 @@
 <html>
 <head>
 	<title>GitGood.org</title>
+	<script src="main.js"></script>
+	<style>
+		* {
+		  box-sizing: border-box;
+		}
+
+		#myUL {
+		  list-style-type: none;
+		  padding: 0;
+		  margin: 0;
+		}
+
+		#myUL li a {
+		  border: 1px solid #ddd;
+		  margin-top: -1px; /* Prevent double borders */
+		  background-color: #f6f6f6;
+		  padding: 12px;
+		  text-decoration: none;
+		  font-size: 18px;
+		  color: black;
+		  display: block
+		}
+
+		#myUL li a:hover:not(.header) {
+		  background-color: #eee;
+		}
+
+		input[type=text] {
+		    width: 130px;
+		    box-sizing: border-box;
+		    border: 2px solid #ccc;
+		    border-radius: 4px;
+		    font-size: 16px;
+		    background-color: white;
+		    background-image: url('searchicon.png');
+		    background-position: 10px 10px; 
+		    background-repeat: no-repeat;
+		    padding: 12px 20px 12px 40px;
+		    -webkit-transition: width 0.4s ease-in-out;
+		    transition: width 0.4s ease-in-out;
+		}
+
+		input[type=text]:focus {
+		    width: 80%;
+		}
+	</style>
 </head>
-<body>
-	TEST
+<body onload="init()">
+	<span style="font-size: 28px;">
+		git 
+		<from>
+			<input type="text" name="search"  id="myInput" onkeyup="myFunction()" placeholder="good" >
+		</from>
+	</span>
+
+<ul id="myUL">
+  
+</ul>
+
 </body>
 </html>
