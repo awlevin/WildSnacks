@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>How Many Licks to the Center of a Tootsie Pop</title>
+	<style>
+		body, html {
+			margin 0;
+		    height: 100%;
+    		overflow:hidden;
+		}
+
+		#lickGif { 
+			display:block;
+  			width:100%;
+			height:100%;
+  			object-fit: cover;
+		}
+		#spaceBar {
+		    position: absolute;
+		    top: 0;
+		    color: red;
+		    /* margin: 0; */
+		    /*left: 50%;*/
+		    font-size: 3em;
+		    text-align: center;
+		    width: 100%
+		}
+		#countPromp {
+		    position: absolute;
+		    bottom: 0;
+		    color: red;
+		    /* margin: 0; */
+		    /*left: 50%;*/
+		    font-size: 3em;
+		    text-align: center;
+		    width: 100%
+		}
+	</style>
+</head>
+<body>
+	<script src="main.js"></script>
+	<img id="lickGif" src="lick.gif"/>
+	<h2 id="spaceBar">Press the Space Bar!</h2>
+	<span id="countPromp"> Lick Count: 
+		<span id='count'>0</span>
+	</span>
+</body>
+</html>
