@@ -2,7 +2,7 @@
   "name": "wildsnacks",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,9 +17,14 @@
   },
   "homepage": "https://github.com/awlevin/WildSnacks#readme",
   "dependencies": {
-    "express": "^4.16.2"
-  },
-  "devDependencies": {
-    "artyom.js": "^1.0.6"
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "dgram": "^1.0.1",
+    "express": "^4.16.2",
+    "forever": "^0.15.3",
+    "ip": "^1.1.5",
+    "morgan": "^1.9.0",
+    "socket.io": "^2.0.3",
+    "udp": "^1.0.0"
   }
 }
