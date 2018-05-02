@@ -33,7 +33,7 @@ void setupVoiceDictionary()
   }
 }
 
-int voiceCommand()
+char*  voiceCommand()
 {
   if ((ad = ad_open_dev(cmd_ln_str_r(config, "-adcdev"), 16000)) == NULL) {
     fprintf(stderr, "Failed to open audio device\n");
@@ -43,12 +43,12 @@ int voiceCommand()
   // start recording
   if (ad_start_rec(ad) < 0) {
     fprintf(stderr, "Failed to start recording\n");
-    return -1;
+    //  return -1;
   }
 
   if (ps_start_utt(ps) < 0) {
     fprintf(stderr, "Failed to start utterance\n");
-    return -1;
+    //return -1;
   }
 
   buf_count = 15;
@@ -58,7 +58,7 @@ int voiceCommand()
     if ((k = ad_read(ad, adbuf, PS_BUF_SIZE)) < 0) {
       fprintf(stderr, "Failed to read audio\n");
       ad_close(ad);
-      return -1;
+      // return -1;
     }
 
     printf("process...\n");
@@ -74,20 +74,21 @@ int voiceCommand()
 	printf("Said: %s\n", voice_str);
 	// do all the switch case in seperate file
 	ad_close(ad);
-	return detectCommand(voice_str);
+	return voice_str;
       } else {
 	printf("LOG: VoicE_str was null");
 	ad_close(ad);
-	return -1;
+	//	return -1;
       }
 
       if (ps_start_utt(ps) < 0) {
 	fprintf(stderr, "Failed to start utterance\n");
 	ad_close(ad);
-	return -1;
+	//	return -1;
       }
     }
   } // for(;;)
+  return NULL;
 }
 
 void voiceCleanUp()

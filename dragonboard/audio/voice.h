@@ -12,14 +12,14 @@
 #include <sphinxbase/ad.h>
 #include <pocketsphinx.h>
 
-#include "option.h"
+//#include "option.h"
 #define PS_BUF_SIZE 2048
 #define PS_BUF_TIME 15
 
 void setupVoiceDictionary();
 
 // return -1 if invalid command
-int voiceCommand();
+char* voiceCommand();
 
 void voiceCleanUp();
   
