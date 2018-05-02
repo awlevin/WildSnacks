@@ -88,14 +88,14 @@ function nextStage() {
 		}
 	} else {
 		loadToggle(true);
-		setTimeout(function(){ nextStage(); }, 6000);
+		setTimeout(function(){ nextStage(); }, 3000);
 	}
 
 }
 
 function annoy() {
 	warnings.innerHTML = warningPhrase[Math.floor(Math.random() * warningPhrase.length)];
-	setTimeout(function(){ warnings.innerHTML = ""; }, 2000);
+	setTimeout(function(){ warnings.innerHTML = ""; }, 3000);
 }
 
 var phrase;
